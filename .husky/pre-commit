@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+
+# exit if any command fails
+set -e
+
+echo "Running yarn typecheck"
+yarn run typecheck
+
+echo "Running yarn lint"
+yarn run lint

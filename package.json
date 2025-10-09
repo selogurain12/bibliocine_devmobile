@@ -3,7 +3,10 @@
   "version": "0.0.0",
   "license": "MIT",
   "private": true,
+  "type": "module",
   "devDependencies": {
+    "@commitlint/cli": "^20.1.0",
+    "@commitlint/config-conventional": "^20.0.0",
     "@eslint/js": "^9.8.0",
     "@expo/cli": "~0.24.14",
     "@nx/eslint": "21.6.4",
@@ -22,6 +25,8 @@
     "eslint-plugin-jsx-a11y": "6.10.1",
     "eslint-plugin-react": "7.35.0",
     "eslint-plugin-react-hooks": "5.0.0",
+    "husky": "^8.0.0",
+    "lint-staged": "^16.2.3",
     "metro-config": "~0.82.4",
     "metro-resolver": "~0.82.4",
     "nx": "21.6.4",
@@ -37,6 +42,7 @@
   "dependencies": {
     "@expo/metro-config": "~0.20.14",
     "@expo/metro-runtime": "~5.0.4",
+    "eslint-plugin-prettier": "^5.5.4",
     "expo": "~53.0.10",
     "expo-splash-screen": "~0.30.9",
     "expo-status-bar": "~2.2.3",
@@ -47,5 +53,10 @@
     "react-native-svg": "~15.11.2",
     "react-native-svg-transformer": "~1.5.1",
     "react-native-web": "~0.20.0"
+  },
+  "scripts": {
+    "prepare": "husky install",
+    "lint": "nx run-many --target=lint --all",
+    "typecheck": "nx run-many --target=typecheck --all"
   }
 }
