@@ -5,7 +5,7 @@ import { errorSchema } from "../errors";
 const contract = initContract();
 export const authContract = contract.router(
   {
-    createAccount: {
+    register: {
       path: "/create",
       method: "POST",
       summary: "Create an account",

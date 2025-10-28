@@ -1,14 +1,14 @@
 import { initContract } from "@ts-rest/core";
+import { z } from "zod";
 import {
   bookInProgressSchema,
   createBookInProgressSchema,
   updateBookInProgressSchema,
-} from "dtos/bookInProgress.dto";
-import { neverDtoSchema } from "dtos/delete-request.dto";
-import { idSchema } from "dtos/id.dto";
-import { ListResultSchema } from "dtos/list-result.dto";
-import { errorSchema } from "errors";
-import { z } from "zod";
+} from "../dtos/bookInProgress.dto";
+import { neverDtoSchema } from "../dtos/delete-request.dto";
+import { idSchema } from "../dtos/id.dto";
+import { ListResultSchema } from "../dtos/list-result.dto";
+import { errorSchema } from "../errors";
 
 const contract = initContract();
 export const bookInProgressContract = contract.router(

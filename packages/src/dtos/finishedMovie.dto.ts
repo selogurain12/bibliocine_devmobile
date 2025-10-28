@@ -10,8 +10,5 @@ export const finishedMovieSchema = createFinishedMovieSchema.extend({
   user: z.lazy(() => userSchema),
 });
 
-export const updateFinishedMovieSchema = createFinishedMovieSchema.partial();
-
 export type FinishedMovieDto = z.infer<typeof finishedMovieSchema>;
 export type CreateFinishedMovieDto = z.infer<typeof createFinishedMovieSchema>;
-export type UpdateFinishedMovieDto = z.infer<typeof updateFinishedMovieSchema>;

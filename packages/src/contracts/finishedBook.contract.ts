@@ -1,9 +1,9 @@
 import { initContract } from "@ts-rest/core";
-import { createFinishedBookSchema, finishedBookSchema } from "dtos/finishedBook.dto";
-import { idSchema } from "dtos/id.dto";
-import { ListResultSchema } from "dtos/list-result.dto";
-import { errorSchema } from "errors";
 import { z } from "zod";
+import { createFinishedBookSchema, finishedBookSchema } from "../dtos/finishedBook.dto";
+import { idSchema } from "../dtos/id.dto";
+import { ListResultSchema } from "../dtos/list-result.dto";
+import { errorSchema } from "../errors";
 
 const contract = initContract();
 export const finishedBookContract = contract.router(

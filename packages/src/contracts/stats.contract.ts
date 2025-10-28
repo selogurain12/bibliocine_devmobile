@@ -1,8 +1,8 @@
 import { initContract } from "@ts-rest/core";
-import { idSchema } from "dtos/id.dto";
-import { statSchema, updateStatSchema } from "dtos/stat.dto";
-import { errorSchema } from "errors";
 import { z } from "zod";
+import { idSchema } from "../dtos/id.dto";
+import { allStatSchema, statSchema, updateStatSchema } from "../dtos/stat.dto";
+import { errorSchema } from "../errors";
 
 const contract = initContract();
 export const statsContract = contract.router(
@@ -29,19 +29,12 @@ export const statsContract = contract.router(
         userId: z.string().uuid(),
       }),
       responses: {
-        200: statSchema.extend({
-          filmotheque: z.number(),
-          finishedMovies: z.number(),
-          moviesInProgress: z.number(),
-          finishedBooks: z.number(),
-          booksInProgress: z.number(),
-          bibliotheque: z.number(),
-        }),
+        200: allStatSchema,
         404: errorSchema,
       },
     },
     updateStats: {
-      path: "",
+      path: "/:id",
       method: "PATCH",
       summary: "Update statistics for a user",
       description: "Update statistics for a user",

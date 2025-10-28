@@ -22,7 +22,7 @@ export const userSchema = z.object({
   lastName: z.string().min(1).max(100),
   username: z.string().min(3).max(50),
   avatarUrl: z.string().url().nullable(),
-  password: z.string().min(8).max(100),
+  password: z.string().min(8).max(100).optional(),
 });
 
 export const connectResponseSchema = z.object({
@@ -38,8 +38,11 @@ export const payloadUserSchema = z.object({
   username: z.string().min(3).max(500),
 });
 
+export const updateUserSchema = payloadUserSchema.partial();
+
 export type UserDto = z.infer<typeof userSchema>;
 export type CreateAccountDto = z.infer<typeof createAccountSchema>;
 export type LoginDto = z.infer<typeof loginSchema>;
 export type ConnectResponseDto = z.infer<typeof connectResponseSchema>;
 export type PayloadUserDto = z.infer<typeof payloadUserSchema>;
+export type UpdateUserDto = z.infer<typeof updateUserSchema>;

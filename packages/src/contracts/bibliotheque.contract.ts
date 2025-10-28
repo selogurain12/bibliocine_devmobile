@@ -1,14 +1,14 @@
 import { initContract } from "@ts-rest/core";
+import { z } from "zod";
+import { neverDtoSchema } from "../dtos/delete-request.dto";
+import { idSchema } from "../dtos/id.dto";
+import { ListResultSchema } from "../dtos/list-result.dto";
+import { errorSchema } from "../errors";
 import {
   bibliothequeSchema,
   createBibliothequeSchema,
   updateBibliothequeSchema,
-} from "dtos/bibliotheque.dto";
-import { neverDtoSchema } from "dtos/delete-request.dto";
-import { idSchema } from "dtos/id.dto";
-import { ListResultSchema } from "dtos/list-result.dto";
-import { errorSchema } from "errors";
-import { z } from "zod";
+} from "../dtos/bibliotheque.dto";
 
 const contract = initContract();
 export const bibliothequeContract = contract.router(
@@ -78,7 +78,7 @@ export const bibliothequeContract = contract.router(
       body: neverDtoSchema,
 
       responses: {
-        204: z.undefined(),
+        200: z.undefined(),
         404: errorSchema,
       },
     },

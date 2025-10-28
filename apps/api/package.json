@@ -2,7 +2,7 @@
   "name": "@biblio-cine-dev-mobile-master/api",
   "version": "0.0.1",
   "private": true,
-  "type": "commonjs",
+   "type": "module",
   "scripts": {
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
@@ -19,15 +19,29 @@
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
+    "@biblio-cine/source": "workspace:*",
+    "@mikro-orm/core": "^6.5.8",
+    "@mikro-orm/nestjs": "^6.1.1",
+    "@mikro-orm/postgresql": "^6.5.9",
     "@nestjs/common": "^11.0.0",
+    "@nestjs/config": "^4.0.2",
     "@nestjs/core": "^11.0.0",
+    "@nestjs/jwt": "^11.0.1",
     "@nestjs/platform-express": "^11.0.0",
+    "@nestjs/swagger": "^11.2.1",
+    "@ts-rest/nest": "^3.52.1",
+    "bcrypt": "^6.0.0",
+    "crypto": "^1.0.1",
+    "express": "^5.1.0",
+    "mikro-orm": "^6.5.8",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.8.0",
     "tslib": "^2.3.0"
   },
   "devDependencies": {
     "@nestjs/cli": "^11.0.10",
-    "@nestjs/testing": "^11.0.0"
+    "@nestjs/testing": "^11.0.0",
+    "@types/bcrypt": "^6",
+    "@types/express": "^5"
   }
 }

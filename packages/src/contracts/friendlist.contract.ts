@@ -1,9 +1,10 @@
 import { initContract } from "@ts-rest/core";
-import { neverDtoSchema } from "dtos/delete-request.dto";
-import { friendlistSchema, updateFriendlistSchema } from "dtos/friendlist.dto";
-import { ListResultSchema } from "dtos/list-result.dto";
-import { errorSchema } from "errors";
 import { z } from "zod";
+import { neverDtoSchema } from "../dtos/delete-request.dto";
+import { friendlistSchema, updateFriendlistSchema } from "../dtos/friendlist.dto";
+import { ListResultSchema } from "../dtos/list-result.dto";
+import { errorSchema } from "../errors";
+import { idSchema } from "../dtos/id.dto";
 
 const contract = initContract();
 export const friendlistContract = contract.router(
@@ -22,25 +23,25 @@ export const friendlistContract = contract.router(
       },
     },
     updateFriendlist: {
-      path: "",
+      path: "/:id",
       method: "PATCH",
       summary: "Update the friend list of a user",
       description: "Update the friend list of a user",
-      pathParams: z.object({
+      pathParams: idSchema.extend({
         userId: z.string().uuid(),
       }),
       body: updateFriendlistSchema,
       responses: {
-        200: ListResultSchema(friendlistSchema),
+        200: friendlistSchema,
         404: errorSchema,
       },
     },
-    deleteFriendlist: {
-      path: "",
+    deleteFriend: {
+      path: "/:friendId",
       method: "DELETE",
       summary: "Delete friend from friend list of a user",
       description: "Delete friend from friend list of a user",
-      pathParams: z.object({
+      pathParams: idSchema.extend({
         userId: z.string().uuid(),
       }),
       body: neverDtoSchema,

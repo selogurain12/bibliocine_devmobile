@@ -1,6 +1,6 @@
-const { withNxMetro } = require('@nx/expo');
-const { getDefaultConfig } = require('@expo/metro-config');
-const { mergeConfig } = require('metro-config');
+const { withNxMetro } = require("@nx/expo");
+const { getDefaultConfig } = require("@expo/metro-config");
+const { mergeConfig } = require("metro-config");
 
 const defaultConfig = getDefaultConfig(__dirname);
 const { assetExts, sourceExts } = defaultConfig.resolver;
@@ -12,13 +12,13 @@ const { assetExts, sourceExts } = defaultConfig.resolver;
  * @type {import('metro-config').MetroConfig}
  */
 const customConfig = {
-  cacheVersion: '@biblio-cine-dev-mobile-master/BiblioCineDevMobileMaster',
+  cacheVersion: "@biblio-cine-dev-mobile-master/BiblioCineDevMobileMaster",
   transformer: {
-    babelTransformerPath: require.resolve('react-native-svg-transformer'),
+    babelTransformerPath: require.resolve("react-native-svg-transformer"),
   },
   resolver: {
-    assetExts: assetExts.filter((ext) => ext !== 'svg'),
-    sourceExts: [...sourceExts, 'cjs', 'mjs', 'svg'],
+    assetExts: assetExts.filter((ext) => ext !== "svg"),
+    sourceExts: [...sourceExts, "cjs", "mjs", "svg"],
   },
 };
 

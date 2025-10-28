@@ -1,14 +1,14 @@
 import { initContract } from "@ts-rest/core";
+import { z } from "zod";
 import {
   filmothequeSchema,
   createFilmothequeSchema,
   updateFilmothequeSchema,
-} from "dtos/filmotheque.dto";
-import { neverDtoSchema } from "dtos/delete-request.dto";
-import { idSchema } from "dtos/id.dto";
-import { ListResultSchema } from "dtos/list-result.dto";
-import { errorSchema } from "errors";
-import { z } from "zod";
+} from "../dtos/filmotheque.dto";
+import { neverDtoSchema } from "../dtos/delete-request.dto";
+import { idSchema } from "../dtos/id.dto";
+import { ListResultSchema } from "../dtos/list-result.dto";
+import { errorSchema } from "../errors";
 
 const contract = initContract();
 export const filmothequeContract = contract.router(

@@ -1,5 +1,5 @@
 {
-  "name": "@biblio-cine-dev-mobile-master/my-package",
+  "name": "@biblio-cine/source",
   "type": "module",
   "packageManager": "yarn@4.9.2",
   "dependencies": {

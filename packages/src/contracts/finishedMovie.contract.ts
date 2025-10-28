@@ -1,9 +1,9 @@
 import { initContract } from "@ts-rest/core";
-import { createFinishedMovieSchema, finishedMovieSchema } from "dtos/finishedMovie.dto";
-import { idSchema } from "dtos/id.dto";
-import { ListResultSchema } from "dtos/list-result.dto";
-import { errorSchema } from "errors";
 import { z } from "zod";
+import { createFinishedMovieSchema, finishedMovieSchema } from "../dtos/finishedMovie.dto";
+import { idSchema } from "../dtos/id.dto";
+import { ListResultSchema } from "../dtos/list-result.dto";
+import { errorSchema } from "../errors";
 
 const contract = initContract();
 export const finishedMovieContract = contract.router(

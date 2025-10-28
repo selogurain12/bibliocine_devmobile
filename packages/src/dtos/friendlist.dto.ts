@@ -2,7 +2,7 @@ import { z } from "zod";
 import { userSchema } from "./user.dto";
 
 export const createFriendlistSchema = z.object({
-  userId: z.lazy(() => userSchema),
+  user: z.lazy(() => userSchema),
   friends: z.array(z.lazy(() => userSchema)),
 });
 

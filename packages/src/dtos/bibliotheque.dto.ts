@@ -3,15 +3,15 @@ import { userSchema } from "./user.dto";
 
 export const createBibliothequeSchema = z.object({
   name: z.string().min(1).max(100),
-  book: z.array(z.string()),
+  books: z.array(z.string()).optional(),
 });
 
 export const bibliothequeSchema = createBibliothequeSchema.extend({
   id: z.string().uuid(),
-  user: z.lazy(() => userSchema).array(),
+  users: z.lazy(() => userSchema).array(),
 });
 
-export const updateBibliothequeSchema = createBibliothequeSchema.partial();
+export const updateBibliothequeSchema = bibliothequeSchema.partial();
 
 export type BibliothequeDto = z.infer<typeof bibliothequeSchema>;
 export type CreateBibliothequeDto = z.infer<typeof createBibliothequeSchema>;
